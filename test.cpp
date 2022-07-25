@@ -232,11 +232,9 @@ int main(int argc, char *argv[]) {
             long long time = p.first;
             long long size = p.second;
             std::cout << "RESULT"
-                << " algo=" << "bv"
-                << " name=" << "moritz_biering"
                 << " time=" << time
                 << " space=" << size
-                << "" << std::endl;
+                << std::endl;
         }
     } else {
 
