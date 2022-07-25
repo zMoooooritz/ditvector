@@ -5,9 +5,15 @@ NAME = ditvector
 CC = g++
 CFLAGS = -Wall -g -std=c++20
 
-.PHONY: all test clean info
+.PHONY: all example test clean info
 
-all: test
+all: example
+
+example: example.o
+	@$(CC) $(CFLAGS) -o example example.o
+
+example.o: example.cpp avl.hpp bit_vector.hpp bit_vector.cpp
+	@$(CC) $(CFLAGS) -c example.cpp
 
 test: test.o
 	@$(CC) $(CFLAGS) -o test test.o

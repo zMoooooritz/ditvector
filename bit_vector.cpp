@@ -81,6 +81,11 @@ void BitVector<S>::complement() {
     complement(this->root);
 }
 
+template <size_t S>
+uint32_t BitVector<S>::size() {
+    return size(this->root);
+}
+
 // collect all the bits in the bitvector and return it as one consecutive bool vector
 template <size_t S>
 std::vector<bool> BitVector<S>::extract() {
@@ -293,6 +298,14 @@ void BitVector<S>::complement(BV_Node<S> *node) {
         complement(node->l);
         complement(node->r);
     }
+}
+
+// calculate the number of bits that are stored in the structure
+template <size_t S>
+uint32_t BitVector<S>::size(BV_Node<S> *node) {
+    if (!node)
+        return 0;
+    return node->nums + size(node->r);
 }
 
 // find the node (always a leaf) that contains the bit at the position index

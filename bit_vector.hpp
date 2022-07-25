@@ -54,6 +54,7 @@ class BitVector : public AVL<BV_Node<S>> {
         uint32_t select(BV_Node<S> *, uint32_t, bool);
         bool access(BV_Node<S> *, uint32_t);
         void complement(BV_Node<S> *);
+        uint32_t size(BV_Node<S> *);
         BV_Node<S> *find_block(BV_Node<S> *, uint32_t*);
 
         #ifdef ADS_DEBUG
@@ -85,6 +86,7 @@ class BitVector : public AVL<BV_Node<S>> {
         uint32_t select(uint32_t, bool);
         bool access(uint32_t);
         void complement();
+        uint32_t size();
         std::vector<bool> extract();
 
         #ifdef ADS_DEBUG
